@@ -117,16 +117,16 @@ describe("With the Paxful API SDK", function () {
     });
 
     it('SDK points to Paxful production by default when using an empty string', function () {
-        const oldHost = process.env.PAXFUL_OAUTH_HOST;
+        const oldHost = process.env.NOONES_OAUTH_HOST;
 
-        process.env.PAXFUL_OAUTH_HOST = "";
+        process.env.NOONES_OAUTH_HOST = "";
         const paxfulApi = usePaxful(credentials);
         const response = httpMocks.createResponse();
 
         paxfulApi.login(response);
         expect(response.getHeaders().location).toMatch(/https:\/\/accounts.paxful.com/);
 
-        process.env.PAXFUL_OAUTH_HOST = oldHost;
+        process.env.NOONES_OAUTH_HOST = oldHost;
     });
 
     it('I can configure to connect to Paxful', function () {
@@ -269,8 +269,8 @@ describe("With the Paxful API SDK", function () {
     });
 
     it('I can get my trades if data host is empty', async function () {
-        const oldVal = process.env.PAXFUL_DATA_HOST;
-        process.env.PAXFUL_DATA_HOST = "";
+        const oldVal = process.env.NOONES_DATA_HOST;
+        process.env.NOONES_DATA_HOST = "";
 
         mockCredentialsStorageReturnValue();
 
@@ -292,11 +292,11 @@ describe("With the Paxful API SDK", function () {
 
         expect(trades).toMatchObject(expectedTrades);
 
-        process.env.PAXFUL_DATA_HOST = oldVal;
+        process.env.NOONES_DATA_HOST = oldVal;
     });
 
     it('I can see an error if response is not a valid json', async function () {
-        process.env.PAXFUL_DATA_HOST = "";
+        process.env.NOONES_DATA_HOST = "";
 
         mockCredentialsStorageReturnValue();
 

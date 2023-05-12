@@ -9,7 +9,7 @@ const createOAuthAuthorizeUrl = (
     requestedScope: string[] | undefined
 ): string => {
     const scope = requestedScope ? requestedScope.join(" ") : "";
-    const url = new URL(`${process.env.PAXFUL_OAUTH_HOST}/oauth2/authorize`);
+    const url = new URL(`${process.env.NOONES_OAUTH_HOST}/oauth2/authorize`);
     url.searchParams.append("response_type", "code");
     url.searchParams.append("client_id", clientId);
     url.searchParams.append("redirect_uri", redirectUri);

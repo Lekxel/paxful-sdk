@@ -78,7 +78,7 @@ export class PaxfulApi {
             return this.upload(url, payload)
         }
 
-        const requestBuilder = new RequestBuilder(`${process.env.PAXFUL_DATA_HOST}${url}`)
+        const requestBuilder = new RequestBuilder(`${process.env.NOONES_DATA_HOST}${url}`)
             .withMethod("POST");
 
         // API expects form data almost always
@@ -107,7 +107,7 @@ export class PaxfulApi {
      */
     public upload(url: string, payload: InvokeBody, method="POST"): AnyPromise {
         return executeRequestAuthorized((
-            new RequestBuilder(`${process.env.PAXFUL_DATA_HOST}${url}`)
+            new RequestBuilder(`${process.env.NOONES_DATA_HOST}${url}`)
                 .acceptJson()
                 .withMethod(method)
                 .withMultipartFormData(payload)
@@ -123,7 +123,7 @@ export class PaxfulApi {
      * @param method - (Optional) Method to use. Default: GET
      */
     public download(url: string, payload: InvokeBody = {}, method="GET"): AnyPromise {
-        const requestBuilder = new RequestBuilder(`${process.env.PAXFUL_DATA_HOST}${url}`)
+        const requestBuilder = new RequestBuilder(`${process.env.NOONES_DATA_HOST}${url}`)
             .acceptBinary()
             .withMethod(method);
         if (method === "GET") {
@@ -143,7 +143,7 @@ export class PaxfulApi {
      */
     public get(url: string, params: InvokeBody = {}): AnyPromise {
         return executeRequestAuthorized((
-            new RequestBuilder(`${process.env.PAXFUL_DATA_HOST}${url}`)
+            new RequestBuilder(`${process.env.NOONES_DATA_HOST}${url}`)
                 .acceptJson()
                 .withMethod("GET")
                 .withUrlParams(params)
@@ -196,7 +196,7 @@ export class PaxfulApi {
 
     protected invokeJsonMethod(url: string, method: string, json?: AnyJson): AnyPromise {
         return executeRequestAuthorized((
-            new RequestBuilder(`${process.env.PAXFUL_DATA_HOST}${url}`)
+            new RequestBuilder(`${process.env.NOONES_DATA_HOST}${url}`)
                 .acceptJson()
                 .withMethod(method)
                 .withJsonData(json)
@@ -209,15 +209,15 @@ export class PaxfulApi {
         if (!configuration.scope || configuration.scope.length === 0) {
             this.apiConfiguration.scope = ["profile", "email"];
         }
-        if (process.env.PAXFUL_OAUTH_HOST === "") {
-            process.env.PAXFUL_OAUTH_HOST = defaultOAuthHost;
+        if (process.env.NOONES_OAUTH_HOST === "") {
+            process.env.NOONES_OAUTH_HOST = defaultOAuthHost;
         } else {
-            process.env.PAXFUL_OAUTH_HOST = process.env.PAXFUL_OAUTH_HOST ?? defaultOAuthHost;
+            process.env.NOONES_OAUTH_HOST = process.env.NOONES_OAUTH_HOST ?? defaultOAuthHost;
         }
-        if (process.env.PAXFUL_DATA_HOST === "" || !process.env.PAXFUL_DATA_HOST) {
-            process.env.PAXFUL_DATA_HOST = defaultDataHost;
+        if (process.env.NOONES_DATA_HOST === "" || !process.env.NOONES_DATA_HOST) {
+            process.env.NOONES_DATA_HOST = defaultDataHost;
         } else {
-            process.env.PAXFUL_DATA_HOST = process.env.PAXFUL_DATA_HOST ?? defaultDataHost;
+            process.env.NOONES_DATA_HOST = process.env.NOONES_DATA_HOST ?? defaultDataHost;
         }
     }
 
