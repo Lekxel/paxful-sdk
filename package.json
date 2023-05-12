@@ -1,7 +1,7 @@
 {
-  "name": "@paxful/sdk-js",
+  "name": "noones/sdk-js",
   "version": "0.3.1",
-  "description": "Paxful javascript SDK",
+  "description": "Noones javascript SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,7 +11,8 @@
     "test": "ALLOW_IN_MEMORY_STORAGE=true jest --ci --testResultsProcessor='jest-junit' --passWithNoTests --colors --coverage",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "doc": "typedoc --out public --readme README.md --exclude \"**/__tests__/**/*.+(ts|tsx|js)\" --exclude \"**/jest.config.js\" --excludeNotDocumented --name \"Paxful SDK (Javascript)\" --hideGenerator --disableSources --highlightTheme light-plus src/"
+    "doc": "typedoc --out public --readme README.md --exclude \"**/__tests__/**/*.+(ts|tsx|js)\" --exclude \"**/jest.config.js\" --excludeNotDocumented --name \"Paxful SDK (Javascript)\" --hideGenerator --disableSources --highlightTheme light-plus src/",
+    "prepare": "npm run build"
   },
   "keywords": [],
   "author": "Paxful Inc",
@@ -55,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/paxful/sdk-js.git"
+    "url": "git+ssh://git@github.com/Lekxel/paxful-sdk.git"
   },
   "bugs": {
     "url": "https://github.com/paxful/sdk-js/issues"
