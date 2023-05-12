@@ -1,5 +1,5 @@
 {
-  "name": "noones/sdk-js",
+  "name": "@noones/sdk-js",
   "version": "0.3.1",
   "description": "Noones javascript SDK",
   "main": "dist/index.js",
